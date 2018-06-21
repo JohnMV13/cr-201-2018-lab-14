@@ -30,15 +30,10 @@ function handleSubmit(event) {
 
 }
 
-// TODO: Add the selected item and quantity to the cart
 function addSelectedItemToCart(event) {
   var item=event.target.items.value;
-  console.log(event.target.items.value);
   var quantity=event.target.quantity.value;
-  console.log(quantity);
-  // TODO: using those, create a new Cart item instance
   new CartItem(item,quantity);
-  console.log(CartItem.all)
 }
 
 // TODO: Save the contents of the cart to Local Storage
