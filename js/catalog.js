@@ -40,12 +40,10 @@ function addSelectedItemToCart(event) {
 
 function saveCartToLocalStorage() {
   localStorage["Cart"]=JSON.stringify(CartItem.all);
-  console.log(localStorage);
 }
 
 function updateCounter() {
   counter++;
-  console.log(counter);
   var span=document.getElementById("itemCount");
   span.textContent=counter;
 }
@@ -59,7 +57,6 @@ function updateCartPreview() {
     li.textContent=CartItem.all[i].item+" : "+CartItem.all[i].quantity;
     ul.appendChild(li);
   }
-  console.log(ul);
   div.appendChild(ul);
 }
 
