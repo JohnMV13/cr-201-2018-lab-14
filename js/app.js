@@ -1,11 +1,18 @@
-/* global Product, Cart */
+/* exports Product, CartItem */
 
 'use strict';
 
 // TODO: Create a "CartItem" constructor (named CartItem) that has item and quantity
 // properties, and builds an array of items as you create instances
 
+var CartItem = function(item, quantity) {
+  this.item = item;
+  this.quantity = quantity;
+  CartItem.all.push(this);
 
+};
+
+CartItem.all = [];
 
 // Product Contructor
 var Product = function(filePath, name) {
