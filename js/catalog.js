@@ -38,7 +38,8 @@ function addSelectedItemToCart(event) {
 
 // TODO: Save the contents of the cart to Local Storage
 function saveCartToLocalStorage() {
-
+  localStorage["Cart"]=JSON.stringify(CartItem.all);
+  console.log(localStorage);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
