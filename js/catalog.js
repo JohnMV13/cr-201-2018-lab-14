@@ -2,6 +2,8 @@
 
 "use strict";
 
+var counter= 0;
+
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
@@ -36,14 +38,18 @@ function addSelectedItemToCart(event) {
   new CartItem(item,quantity);
 }
 
-// TODO: Save the contents of the cart to Local Storage
 function saveCartToLocalStorage() {
   localStorage["Cart"]=JSON.stringify(CartItem.all);
   console.log(localStorage);
 }
 
 // TODO: Update the cart count in the header nav with the number of items in the Cart
-function updateCounter() {}
+function updateCounter() {
+  counter++;
+  console.log(counter);
+  var span=document.getElementById("itemCount");
+  span.textContent=counter;
+}
 
 // TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
