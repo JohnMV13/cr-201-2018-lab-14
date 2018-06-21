@@ -36,6 +36,7 @@ function showCart() {
     var tr = document.createElement("tr");
     var td = document.createElement("td");
     var button = document.createElement("button");
+    button.row = i;
     button.textContent = "x";
     td.appendChild(button);
     tr.appendChild(td);
@@ -50,8 +51,7 @@ function showCart() {
   
   // TODO: Iterate over the items in the cart
   for (var i = 0; i < Cart.length; i++) {
-
-    console.log("hi", createRow(i));
+    createRow(i);
   }
     
 
@@ -63,14 +63,12 @@ function showCart() {
 
 
 function removeItemFromCart(event) {
-
+ 
   // TODO: When a delete link is clicked, rebuild the Cart array without that item
-  Cart.splice(0, 1, 0);
+  Cart.splice(event.target.row, 1);
   clearCart();
-  table.addEventListener("click", removeItemFromCart);
   showCart();
-
-
+  localStorage.removeItem("");
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
 
