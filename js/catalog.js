@@ -1,15 +1,18 @@
-/* global Product, Cart */
+/* global Product, CartItem */
 
-'use strict';
+"use strict";
 
 // On screen load, we call this method to put all of the busmall options
 // (the things in the Product.allProducts array) into the drop down list.
 function populateForm() {
 
   //TODO: Add an <option> tag inside the form's select for each product
-  var selectElement = document.getElementById('items');
+  var selectElement = document.getElementById("items");
   for (var i in Product.allProducts) {
-
+    var option=document.createElement("option");
+    option.value=Product.allProducts[i].name;
+    option.textContent=Product.allProducts[i].name;
+    selectElement.appendChild(option);
   }
 
 }
@@ -53,8 +56,8 @@ function updateCartPreview() {
 // Set up the "submit" event listener on the form.
 // This is the trigger for the app. When a user "submits" the form, it will
 // Call that handleSubmit method above and kick off the whole process
-var catalogForm = document.getElementById('catalog');
-catalogForm.addEventListener('submit', handleSubmit);
+var catalogForm = document.getElementById("catalog");
+catalogForm.addEventListener("submit", handleSubmit);
 
 // Before anything else of value can happen, we need to fill in the select
 // drop down list in the form.
