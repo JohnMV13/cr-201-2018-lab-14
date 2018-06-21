@@ -40,21 +40,24 @@ function addSelectedItemToCart(event) {
 
 function saveCartToLocalStorage() {
   localStorage["Cart"]=JSON.stringify(CartItem.all);
-  console.log(localStorage);
 }
 
-// TODO: Update the cart count in the header nav with the number of items in the Cart
 function updateCounter() {
   counter++;
-  console.log(counter);
   var span=document.getElementById("itemCount");
   span.textContent=counter;
 }
 
-// TODO: As you add items into the cart, show them (item & quantity) in the cart preview div
 function updateCartPreview() {
-  // TODO: Get the item and quantity from the form
-  // TODO: Add a new element to the cartContents div with that information
+  var div=document.getElementById("cartContents");
+  div.innerHTML="";
+  var ul=document.createElement("ul");
+  for(var i=0;i<CartItem.all.length;i++){
+    var li=document.createElement("li");
+    li.textContent=CartItem.all[i].item+" : "+CartItem.all[i].quantity;
+    ul.appendChild(li);
+  }
+  div.appendChild(ul);
 }
 
 // Set up the "submit" event listener on the form.
