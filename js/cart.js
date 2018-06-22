@@ -68,10 +68,11 @@ function removeItemFromCart(event) {
   Cart.splice(event.target.row, 1);
   clearCart();
   showCart();
-  localStorage.removeItem("");
+  localStorage["Cart"]=JSON.stringify(Cart);
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
 
+  console.log(localStorage);
 }
 
 // This will initialize the page and draw the cart on screen
