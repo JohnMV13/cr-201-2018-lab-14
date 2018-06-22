@@ -1,1 +1,60 @@
 /* TODO: Make it awesome */
+body{
+  background-color:#fff8f0;
+}
+header{
+  background-color:#9e2b25;
+  margin-bottom: 20px;
+  border-bottom: 2px solid #1c0b19;
+  height:100px;
+}
+main header{
+  height:50px;
+}
+h1{
+  font-size: 2em;
+  text-align:center;
+}
+nav{
+  float:right;
+  margin-right:50px;
+}
+ul li{
+  display:inline-block;
+  padding:10px;
+  padding-top:0px;
+  background-color:#ccc8c2;
+  border:3px solid #1c0b19;
+ 
+}
+ul li a{
+  display:inline-block;
+  text-decoration: none;
+  color:#1c0b19;
+  padding-top:10px;
+}
+ol{
+  text-align:center;
+  width:75%;
+  margin:0px auto;
+}
+ol li{
+  list-style-type:disc;
+  padding:5px;
+  width:50%;
+  margin-left:230px;
+}
+main{
+  min-height:100vh;
+}
+form{
+  text-align:center;
+  margin:20px;
+}
+legend{
+  font-size:1.5em;
+  margin-bottom:50px;
+}
+footer{
+  background-color:#140d4f;
+}
