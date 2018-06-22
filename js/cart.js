@@ -1,13 +1,13 @@
-'use strict';
+"use strict";
 
 var Cart = [];
 
 // Create an event listener so that when the delete link is clicked, the removeItemFromCart method is invoked.
-var table = document.getElementById('cart');
-table.addEventListener('click', removeItemFromCart);
+var table = document.getElementById("cart");
+table.addEventListener("click", removeItemFromCart);
 
 function loadCart() {
-  Cart = JSON.parse(localStorage.getItem('cart')) || [];
+  Cart = JSON.parse(localStorage.getItem("Cart")) || [];
 }
 
 // Make magic happen --- re-pull the Cart, clear out the screen and re-draw it
@@ -18,26 +18,61 @@ function renderCart() {
 }
 
 // TODO: Remove all of the rows (tr) in the cart table (tbody)
-function clearCart() {}
+function clearCart() {
+  var tbody = document.querySelector("tbody");
+  tbody.innerHTML = "";
+}
 
 // TODO: Fill in the <tr>'s under the <tbody> for each item in the cart
 function showCart() {
 
   // TODO: Find the table body
-
-  // TODO: Iterate over the items in the cart
+  var cartTB = document.querySelector("tbody");
+  console.log(cartTB);
   // TODO: Create a TR
-  // TODO: Create a TD for the delete link, quantity,  and the item
+ 
+    // TODO: Create a TD for the delete link, quantity,  and the item
+  function createRow(i) {    
+    var tr = document.createElement("tr");
+    var td = document.createElement("td");
+    var button = document.createElement("button");
+    button.row = i;
+    button.textContent = "x";
+    td.appendChild(button);
+    tr.appendChild(td);
+    var td = document.createElement("td");
+    td.textContent = Cart[i].item;
+    tr.appendChild(td);
+    var td = document.createElement("td");
+    td.textContent = Cart[i].quantity;
+    tr.appendChild(td);
+    cartTB.appendChild(tr);
+  }
+  
+  // TODO: Iterate over the items in the cart
+  for (var i = 0; i < Cart.length; i++) {
+    createRow(i);
+  }
+    
+
+
   // TODO: Add the TR to the TBODY and each of the TD's to the TR
 
-}
+
+};
+
 
 function removeItemFromCart(event) {
-
+ 
   // TODO: When a delete link is clicked, rebuild the Cart array without that item
+  Cart.splice(event.target.row, 1);
+  clearCart();
+  showCart();
+  localStorage["Cart"]=JSON.stringify(Cart);
   // TODO: Save the cart back to local storage
   // TODO: Re-draw the cart table
 
+  console.log(localStorage);
 }
 
 // This will initialize the page and draw the cart on screen
